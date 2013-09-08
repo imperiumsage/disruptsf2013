@@ -1,8 +1,11 @@
 package com.cinemagram;
 
 
+import android.app.ActionBar;
 import android.app.Activity;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import com.origamilabs.library.views.StaggeredGridView;
@@ -49,6 +52,10 @@ public class BaseActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.base_activity);
 
+        ActionBar bar = getActionBar();
+        bar.setDisplayHomeAsUpEnabled(true);
+        bar.setBackgroundDrawable(new ColorDrawable(R.color.brown));
+        bar.setStackedBackgroundDrawable(new ColorDrawable(R.color.green));
 
         StaggeredGridView gridView = (StaggeredGridView) this.findViewById(R.id.staggeredGridView);
 
@@ -70,5 +77,11 @@ public class BaseActivity extends Activity {
 
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        finish();
+        return super.onOptionsItemSelected(item);
     }
 }

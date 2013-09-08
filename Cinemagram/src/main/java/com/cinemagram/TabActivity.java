@@ -3,7 +3,9 @@ package com.cinemagram;
 import java.util.Locale;
 
 
+import android.app.ActionBar;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -41,6 +43,10 @@ public class TabActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ActionBar bar = getActionBar();
+        bar.setBackgroundDrawable(new ColorDrawable(R.color.brown));
+        bar.setStackedBackgroundDrawable(new ColorDrawable(R.color.green));
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the app.
@@ -116,8 +122,8 @@ public class TabActivity extends FragmentActivity {
         }
 
         @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
             View rootView = inflater.inflate(R.layout.fragment_main_dummy, container, false);
             TextView dummyTextView = (TextView) rootView.findViewById(R.id.section_label);
             dummyTextView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
