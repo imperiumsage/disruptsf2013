@@ -67,6 +67,7 @@
     <orderEntry type="library" name="support-v4-18.0.0" level="project" />
     <orderEntry type="library" name="ComAndroidSupportAppcompatV71800.aar" level="project" />
     <orderEntry type="library" name="classes" level="project" />
+    <orderEntry type="module" module-name="StaggeredGridView" />
   </component>
 </module>
 
