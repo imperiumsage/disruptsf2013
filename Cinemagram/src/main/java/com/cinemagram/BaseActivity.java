@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import com.origamilabs.library.views.StaggeredGridView;
 
 /**
@@ -70,7 +71,7 @@ public class BaseActivity extends Activity {
         gridView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
-        Button addImage = (Button) findViewById(R.id.add_image_button);
+        TextView addImage = (TextView) findViewById(R.id.add_image_button);
         addImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
