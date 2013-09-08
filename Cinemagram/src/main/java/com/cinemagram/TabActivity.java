@@ -3,6 +3,7 @@ package com.cinemagram;
 import java.util.Locale;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -16,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class TabActivity extends FragmentActivity {
@@ -48,7 +50,6 @@ public class TabActivity extends FragmentActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-
     }
 
     @Override
@@ -57,8 +58,7 @@ public class TabActivity extends FragmentActivity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-    
-    
+
 
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
@@ -123,6 +123,14 @@ public class TabActivity extends FragmentActivity {
             View rootView = inflater.inflate(R.layout.fragment_main_dummy, container, false);
             TextView dummyTextView = (TextView) rootView.findViewById(R.id.section_label);
             dummyTextView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
+            Button select = (Button) rootView.findViewById(R.id.select_image_btn);
+            select.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(getActivity().getApplicationContext(), BaseActivity.class));
+                }
+            });
+
             return rootView;
         }
     }

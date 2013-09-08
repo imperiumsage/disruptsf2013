@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentActivity;
 import android.view.MotionEvent;
 import android.view.View;
 
+import android.widget.Button;
 import com.cinemagram.util.SystemUiHider;
 
 /**
@@ -112,7 +113,14 @@ public class BaseActivity extends FragmentActivity {
         // Upon interacting with UI controls, delay any scheduled hide()
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
-        findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
+        Button addImage = (Button) findViewById(R.id.select_image_btn);
+        addImage.setOnTouchListener(mDelayHideTouchListener);
+        addImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     @Override
